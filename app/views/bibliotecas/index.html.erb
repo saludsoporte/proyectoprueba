@@ -1,0 +1,53 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Bibliotecas" %>
+
+<h1>Bibliotecas</h1>
+
+<div id="bibliotecas">
+  <% @bibliotecas.each do |biblioteca| %>
+    <%= render biblioteca %>
+    <p>
+      <%= link_to "Show this biblioteca", biblioteca %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Crear relación", biblioteca_path(1) %>
+
+
+<hr>
+<h2>5 Libros</h2>
+<div id="libros">
+  <% @libros.each do |libro| %>
+    <%= render libro %>
+    <p>
+      <%= link_to "Mostrar libro", libro %>
+    </p>
+  <% end %>
+</div>
+
+<hr>
+<h2>3 Autores</h2>
+<div id="autores">
+  <% @autors.each do |autor| %>
+    <%= render autor %>
+    <p>
+      <%= link_to "Mostrar autor", autor %>
+    </p>
+  <% end %>
+</div>
+
+<hr>
+<h2>1 Autor con más de 1 libro</h2>
+<div id="autor_mas_de_1">
+  <% @autor_mas_de_1.libros.each do |libro| %>
+    <%= render libro %>
+  <% end %>
+</div>
+
+
+<hr>
+<%= link_to "New biblioteca", new_biblioteca_path %> <br>
+<%= link_to "Ir a libros", libros_path %>  <br>
+<%= link_to "Autores", autors_path %>

@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @biblioteca %>
+
+<div>
+  <%= link_to "Edit this biblioteca", edit_biblioteca_path(@biblioteca) %> |
+  <%= link_to "Back to bibliotecas", bibliotecas_path %>
+
+  <%= button_to "Destroy this biblioteca", @biblioteca, method: :delete %>
+
+  <%= form_with url:bibliotecas_crear_relacion_path, method: :post do |f| %>
+    <%= f.text_field :biblioteca_id, value:@biblioteca.id %>
+    <%= f.select(:libro_id, @libros.collect{|b| [b.nombre, b.id]}) %>
+    <%= f.submit "Guardar" %>
+  <% end %>
+
+  <% @relaciones_biblioteca.each do |rb| %>
+    Libro: <%= rb.libro.nombre %>
+  <% end %>
+
+  <% if params[:error] == "false" %>
+    <p>Relación guardada</p>
+  <% else %>
+    <p>Error, no se guardó</p>
+  <% end %>
+</div>

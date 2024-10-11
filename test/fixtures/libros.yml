@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  editorial: MyString
+  fechaPub: 2024-10-07
+  autor: one
+
+two:
+  nombre: MyString
+  editorial: MyString
+  fechaPub: 2024-10-07
+  autor: two
